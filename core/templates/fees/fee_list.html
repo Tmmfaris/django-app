@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>Fees</h2>
+        <a href="#" class="btn btn-success">Add Fee</a>
+    </div>
+    <!-- Alerts -->
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        {% endfor %}
+    {% endif %}
+    <!-- Tabs for filtering -->
+    <ul class="nav nav-tabs mb-3" id="feeTab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="all-tab" data-toggle="tab" href="#all" role="tab">All</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="paid-tab" data-toggle="tab" href="#paid" role="tab">Paid</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="due-tab" data-toggle="tab" href="#due" role="tab">Due</a>
+        </li>
+    </ul>
+    <div class="tab-content" id="feeTabContent">
+        <div class="tab-pane fade show active" id="all" role="tabpanel">
+            <div class="row">
+                <!-- Example card, replace with real data -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow">
+                        <div class="card-body">
+                            <h5 class="card-title">John Doe</h5>
+                            <p class="card-text">Amount: $500<br>Due Date: 2026-02-15<br>Status: <span class="badge bg-success">Paid</span></p>
+                            <div class="d-flex justify-content-between">
+                                <a href="#" class="btn btn-info btn-sm" data-toggle="modal" data-target="#feeDetailModal1">View</a>
+                                <a href="#" class="btn btn-warning btn-sm">Edit</a>
+                                <a href="#" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</a>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="progress" style="height:8px;">
+                                <div class="progress-bar bg-success" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal for fee details -->
+                <div class="modal fade" id="feeDetailModal1" tabindex="-1" role="dialog" aria-labelledby="feeDetailModalLabel1" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="feeDetailModalLabel1">Fee Details</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p><strong>Student:</strong> John Doe</p>
+                                <p><strong>Amount:</strong> $500</p>
+                                <p><strong>Due Date:</strong> 2026-02-15</p>
+                                <p><strong>Status:</strong> <span class="badge bg-success">Paid</span></p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="paid" role="tabpanel">
+            <div class="row">
+                <!-- Example card, filter by paid status -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow">
+                        <div class="card-body">
+                            <h5 class="card-title">John Doe</h5>
+                            <p class="card-text">Amount: $500<br>Due Date: 2026-02-15<br>Status: <span class="badge bg-success">Paid</span></p>
+                            <div class="d-flex justify-content-between">
+                                <a href="#" class="btn btn-info btn-sm" data-toggle="modal" data-target="#feeDetailModal1">View</a>
+                                <a href="#" class="btn btn-warning btn-sm">Edit</a>
+                                <a href="#" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</a>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="progress" style="height:8px;">
+                                <div class="progress-bar bg-success" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="due" role="tabpanel">
+            <div class="row">
+                <!-- Example card, filter by due status (not paid) -->
+                <!-- Add more cards for unpaid fees as needed -->
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

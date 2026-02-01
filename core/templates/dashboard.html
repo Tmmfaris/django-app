@@ -1,0 +1,186 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    body {
+        background: #181f32 !important;
+    }
+    .sidebar {
+        background: #1a2235 !important;
+        color: #fff;
+    }
+    .sidebar .nav-link.active, .sidebar .nav-link:hover {
+        background: #232b3e !important;
+        color: #ffd600 !important;
+    }
+    .dashboard-card-dark {
+        background: #232b3e;
+        border-left: 6px solid #232b3e;
+        box-shadow: 0 4px 24px 0 #232b3e22;
+        color: #fff;
+    }
+    .dashboard-card-yellow {
+        background: linear-gradient(135deg, #ffd600 80%, #232b3e 100%);
+        border-left: 6px solid #ffd600;
+        box-shadow: 0 4px 24px 0 #ffd60022;
+        color: #232b3e;
+    }
+    .dashboard-card-teal {
+        background: linear-gradient(135deg, #00bcd4 80%, #232b3e 100%);
+        border-left: 6px solid #00bcd4;
+        box-shadow: 0 4px 24px 0 #00bcd422;
+        color: #fff;
+    }
+    .dashboard-card-green {
+        background: linear-gradient(135deg, #00c48c 80%, #232b3e 100%);
+        border-left: 6px solid #00c48c;
+        box-shadow: 0 4px 24px 0 #00c48c22;
+        color: #fff;
+    }
+    .dashboard-card-blue {
+        background: linear-gradient(135deg, #2196f3 80%, #232b3e 100%);
+        border-left: 6px solid #2196f3;
+        box-shadow: 0 4px 24px 0 #2196f322;
+        color: #fff;
+    }
+    .dashboard-card-purple {
+        background: linear-gradient(135deg, #6c63ff 80%, #232b3e 100%);
+        border-left: 6px solid #6c63ff;
+        box-shadow: 0 4px 24px 0 #6c63ff22;
+        color: #fff;
+    }
+</style>
+<div class="container-fluid px-0" style="background: #181f32; min-height: 100vh;">
+    <!-- Topbar -->
+    <div class="row align-items-center py-3 mb-4" style="border-bottom:1px solid #232b3e;">
+        <div class="col-md-6 col-8">
+            <h3 class="fw-bold mb-0" style="color:#fff;">Academic Dashboard</h3>
+        </div>
+        <div class="col-md-6 col-4 text-end">
+            <input type="text" class="form-control d-inline-block w-auto" placeholder="Search..." style="background:#232b3e; color:#fff; border:0; border-radius:2rem; max-width:200px;">
+            <span class="fa fa-user-circle fa-2x ms-3" style="color:#ffd600;"></span>
+        </div>
+    </div>
+    <!-- Stat Cards Row -->
+    <div class="row g-3 mb-4">
+        <div class="col-xl-3 col-lg-6 col-md-6 mb-3">
+            <div class="card border-0 shadow-lg text-center h-100 dashboard-card-yellow">
+                <div class="card-body">
+                    <span class="fa fa-desktop fa-2x mb-2" style="color:#e17055;"></span>
+                    <div class="fw-semibold" style="color:#e17055;">Total Classes</div>
+                    <div class="display-6 fw-bold" style="color:#e17055;">04/06</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-lg-6 col-md-6 mb-3">
+            <div class="card border-0 shadow-lg text-center h-100 dashboard-card-yellow">
+                <div class="card-body">
+                    <span class="fa fa-user-graduate fa-2x mb-2" style="color:#6366f1;"></span>
+                    <div class="fw-semibold" style="color:#6366f1;">Total Students</div>
+                    <div class="display-6 fw-bold" style="color:#6366f1;">40/60</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-lg-6 col-md-6 mb-3">
+            <div class="card border-0 shadow-lg text-center h-100 dashboard-card-teal">
+                <div class="card-body">
+                    <span class="fa fa-book fa-2x mb-2" style="color:#f7b731;"></span>
+                    <div class="fw-semibold" style="color:#f7b731;">Total Lessons</div>
+                    <div class="display-6 fw-bold" style="color:#f7b731;">30/50</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-lg-6 col-md-6 mb-3">
+            <div class="card border-0 shadow-lg text-center h-100 dashboard-card-dark">
+                <div class="card-body">
+                    <span class="fa fa-clock fa-2x mb-2" style="color:#00bcd4;"></span>
+                    <div class="fw-semibold" style="color:#00bcd4;">Total Hours</div>
+                    <div class="display-6 fw-bold" style="color:#00bcd4;">15/20</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Main Professional Grid -->
+    <div class="row g-4">
+        <!-- Main Analytics -->
+        <div class="col-xl-6 col-lg-7">
+            <div class="card border-0 shadow-lg mb-4 dashboard-card-dark" style="border-top: 4px solid #232b3e;">
+                <div class="card-header border-0 fw-semibold" style="background:linear-gradient(90deg,#fce4ec 40%,#fffde7 100%,#ffd6e0 120%); font-size:1.1rem; color:#e17055;">Teaching Activity <span class="float-end"><select class="form-select form-select-sm d-inline-block w-auto"><option>Weekly</option><option>Monthly</option></select></span></div>
+                <div class="card-body">
+                    <!-- Placeholder for teaching activity chart or summary -->
+                    <div class="text-center text-muted">(Chart or summary here)</div>
+                </div>
+            </div>
+            <div class="card border-0 shadow-lg mb-4 dashboard-card-dark" style="border-top: 4px solid #232b3e;">
+                <div class="card-header border-0 fw-semibold" style="background:linear-gradient(90deg,#f3e5f5 40%,#fffde7 100%,#ffd6e0 120%); font-size:1.1rem; color:#FFD600;">Teaching History</div>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item px-0" style="background:transparent;">
+                            <span class="fw-bold" style="color:#6366f1;">Sep 05, 9am - 10am (60min)</span><br>
+                            <span class="text-muted">Lorem ipsum dolor</span> <span class="badge bg-warning text-dark ms-2">In Progress</span>
+                        </li>
+                        <li class="list-group-item px-0" style="background:transparent;">
+                            <span class="fw-bold" style="color:#43a047;">Sep 04, 2pm - 3pm (60min)</span><br>
+                            <span class="text-muted">Lorem ipsum dolor</span> <span class="badge bg-success ms-2">Completed</span>
+                        </li>
+                        <li class="list-group-item px-0" style="background:transparent;">
+                            <span class="fw-bold" style="color:#e17055;">Sep 03, 11am - 12pm (60min)</span><br>
+                            <span class="text-muted">Lorem ipsum dolor</span> <span class="badge bg-danger ms-2">Missed</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Tasks/Progress -->
+        <div class="col-xl-3 col-lg-5">
+            <div class="card border-0 shadow-lg mb-4 dashboard-card-yellow" style="border-top: 4px solid #ffd600;">
+                <div class="card-header border-0 fw-semibold" style="background:linear-gradient(90deg,#eae8fd 40%,#fffde7 100%,#ffd600 120%); font-size:1.1rem; color:#6366f1;">
+                    <span class="fa fa-chart-pie me-2" style="color:#FFD600;"></span>Semester Progress
+                </div>
+                <div class="card-body text-center">
+                    <div style="width:90px; height:90px; margin:0 auto;">
+                        <svg width="90" height="90">
+                            <circle cx="45" cy="45" r="40" stroke="#eaeaea" stroke-width="8" fill="none"/>
+                            <circle cx="45" cy="45" r="40" stroke="#6366f1" stroke-width="8" fill="none" stroke-dasharray="251.2" stroke-dashoffset="125.6" stroke-linecap="round"/>
+                        </svg>
+                        <div style="position:relative; top:-70px; font-size:1.3rem; color:#6366f1; font-weight:600;">50%</div>
+                    </div>
+                    <div class="mt-2 text-muted">Lesson Progressed</div>
+                    <div class="fw-bold" style="color:#6366f1;">30 / 60</div>
+                </div>
+            </div>
+            <div class="card border-0 shadow-lg mb-4 dashboard-card-teal" style="border-top: 4px solid #00bcd4;">
+                <div class="card-header border-0 fw-semibold" style="background:linear-gradient(90deg,#e0f7fa 40%,#fffde7 100%,#ffd600 120%); font-size:1.1rem; color:#00bcd4;">
+                    <span class="fa fa-calendar-alt me-2" style="color:#FFD600;"></span>Calendar
+                </div>
+                <div class="card-body">
+                    <div class="text-center mb-2 fw-semibold" style="color:#00bcd4;">September 2024</div>
+                    <table class="table table-bordered text-center mb-0" style="font-size:0.95em;">
+                        <thead><tr style="background:#232b3e;"><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr></thead>
+                        <tbody>
+                            <tr><td></td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td></tr>
+                            <tr><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td></tr>
+                            <tr><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td></tr>
+                            <tr><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td><td>27</td></tr>
+                            <tr><td>28</td><td>29</td><td>30</td><td></td><td></td><td></td><td></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- Right Sidebar -->
+        <div class="col-xl-3 d-none d-xl-block">
+            <div class="card border-0 shadow-lg mb-4 dashboard-card-dark" style="border-top: 4px solid #232b3e; min-height:300px;">
+                <div class="card-header border-0 fw-semibold" style="color:#fff; background:#232b3e;">Quick Links</div>
+                <div class="card-body">
+                    <ul class="list-unstyled mb-0">
+                        <li><a href="#" style="color:#ffd600;"><span class="fa fa-home me-2"></span>Home</a></li>
+                        <li><a href="#" style="color:#00bcd4;"><span class="fa fa-user me-2"></span>Profile</a></li>
+                        <li><a href="#" style="color:#43a047;"><span class="fa fa-cog me-2"></span>Settings</a></li>
+                        <li><a href="#" style="color:#e17055;"><span class="fa fa-sign-out-alt me-2"></span>Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

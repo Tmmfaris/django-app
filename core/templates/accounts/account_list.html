@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>Accounts</h2>
+        <a href="#" class="btn btn-success">Add Account</a>
+    </div>
+    <!-- Alerts -->
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        {% endfor %}
+    {% endif %}
+    <!-- Tabs for filtering -->
+    <ul class="nav nav-tabs mb-3" id="accountTab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="all-tab" data-toggle="tab" href="#all" role="tab">All</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="type-tab" data-toggle="tab" href="#type" role="tab">By Type</a>
+        </li>
+    </ul>
+    <div class="tab-content" id="accountTabContent">
+        <div class="tab-pane fade show active" id="all" role="tabpanel">
+            <div class="row">
+                <!-- Example card, replace with real data -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow">
+                        <div class="card-body">
+                            <h5 class="card-title">General Fund</h5>
+                            <p class="card-text">Type: School<br>Balance: $10,000</p>
+                            <div class="d-flex justify-content-between">
+                                <a href="#" class="btn btn-info btn-sm" data-toggle="modal" data-target="#accountDetailModal1">View</a>
+                                <a href="#" class="btn btn-warning btn-sm">Edit</a>
+                                <a href="#" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</a>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="progress" style="height:8px;">
+                                <div class="progress-bar bg-success" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal for account details -->
+                <div class="modal fade" id="accountDetailModal1" tabindex="-1" role="dialog" aria-labelledby="accountDetailModalLabel1" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="accountDetailModalLabel1">Account Details</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p><strong>Name:</strong> General Fund</p>
+                                <p><strong>Type:</strong> School</p>
+                                <p><strong>Balance:</strong> $10,000</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="type" role="tabpanel">
+            <div class="row">
+                <!-- Example card, filter by type -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow">
+                        <div class="card-body">
+                            <h5 class="card-title">General Fund</h5>
+                            <p class="card-text">Type: School<br>Balance: $10,000</p>
+                            <div class="d-flex justify-content-between">
+                                <a href="#" class="btn btn-info btn-sm" data-toggle="modal" data-target="#accountDetailModal1">View</a>
+                                <a href="#" class="btn btn-warning btn-sm">Edit</a>
+                                <a href="#" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</a>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="progress" style="height:8px;">
+                                <div class="progress-bar bg-success" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
