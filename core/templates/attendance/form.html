@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h3>Mark Attendance</h3>
+
+<form method="post">
+{% csrf_token %}
+{{ form.as_p }}
+
+<button class="btn btn-success">Save</button>
+<a href="/attendance/" class="btn btn-secondary">Back</a>
+</form>
+
+{% endblock %}

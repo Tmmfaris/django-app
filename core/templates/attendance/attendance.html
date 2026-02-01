@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h4 class="mb-3">Attendance</h4>
+
+<!-- SUBJECT TABS -->
+<div class="d-flex gap-2 mb-4">
+  {% for s in subjects %}
+    <a href="?subject={{ s.id }}"
+       class="btn {% if s.id|stringformat:'s' == selected_subject %}btn-primary{% else %}btn-outline-primary{% endif %}">
+      {{ s.code }}
+    </a>
+  {% endfor %}
+</div>
+
+<form method="post">
+{% csrf_token %}
+
+<input type="hidden" name="subject" value="{{ selected_subject }}">
+
+<div class="row mb-3">
+  <div class="col-md-3">
+    <input type="date" name="date" class="form-control" value="{{ today }}">
+  </div>
+</div>
+
+<table class="table table-bordered text-center align-middle">
+<thead class="table-light">
+<tr>
+  <th>#</th>
+  <th>Roll No</th>
+  <th>Name</th>
+  <th>Present</th>
+</tr>
+</thead>
+
+<tbody>
+{% for s in students %}
+<tr class="attendance-row">
+  <td>{{ forloop.counter }}</td>
+  <td>{{ s.roll_number }}</td>
+  <td class="text-start">{{ s.name }}</td>
+  <td>
+    <input type="checkbox" name="status_{{ s.id }}"
+           class="form-check-input attendance-check">
+  </td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+
+<button class="btn btn-success">Save Attendance</button>
+
+</form>
+
+<!-- JS FOR GREEN / RED ROW -->
+<script>
+document.querySelectorAll(".attendance-check").forEach(cb => {
+  cb.addEventListener("change", function () {
+    const row = this.closest("tr");
+    row.classList.toggle("table-success", this.checked);
+    row.classList.toggle("table-danger", !this.checked);
+  });
+});
+</script>
+
+{% endblock %}

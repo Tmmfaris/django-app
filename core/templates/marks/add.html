@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="card shadow-sm col-md-6 mx-auto">
+<div class="card-body">
+
+<h5 class="mb-3">Add Marks</h5>
+
+<form method="post">
+{% csrf_token %}
+
+<div class="mb-3">
+<label class="form-label">Student</label>
+<select name="student" class="form-select" required>
+{% for s in students %}
+<option value="{{ s.id }}">{{ s.name }}</option>
+{% endfor %}
+</select>
+</div>
+
+<div class="mb-3">
+<label class="form-label">Subject</label>
+<select name="subject" class="form-select" required>
+{% for sub in subjects %}
+<option value="{{ sub.id }}">{{ sub.name }}</option>
+{% endfor %}
+</select>
+</div>
+
+<div class="mb-3">
+<label class="form-label">Score</label>
+<input type="number" name="score" class="form-control" required>
+</div>
+
+<button class="btn btn-success">Save</button>
+<a href="{% url 'marks_list' %}" class="btn btn-secondary">Back</a>
+
+</form>
+
+</div>
+</div>
+
+{% endblock %}

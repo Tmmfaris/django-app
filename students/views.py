@@ -1,31 +1,37 @@
-from django.shortcuts import render
-
-
 from django.shortcuts import render, redirect, get_object_or_404
+from django.core.paginator import Paginator
 from .models import Student
 from .forms import StudentForm
 
+
 def student_list(request):
-	students = Student.objects.all()
-	return render(request, 'students/student_list.html', {'students': students})
+    students = Student.objects.all()
+
+    paginator = Paginator(students, 10)
+    page = request.GET.get("page")
+    data = paginator.get_page(page)
+
+    return render(request, "students/list.html", {"data": data})
+
 
 def student_add(request):
-	if request.method == 'POST':
-		form = StudentForm(request.POST, request.FILES)
-		if form.is_valid():
-			form.save()
-			return redirect('student_list')
-	else:
-		form = StudentForm()
-	return render(request, 'students/student_form.html', {'form': form, 'form_title': 'Add Student'})
+    form = StudentForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect("student_list")
+    return render(request, "form.html", {"form": form, "title": "Add Student"})
+
 
 def student_edit(request, pk):
-	student = get_object_or_404(Student, pk=pk)
-	if request.method == 'POST':
-		form = StudentForm(request.POST, request.FILES, instance=student)
-		if form.is_valid():
-			form.save()
-			return redirect('student_list')
-	else:
-		form = StudentForm(instance=student)
-	return render(request, 'students/student_form.html', {'form': form, 'form_title': 'Edit Student'})
+    obj = get_object_or_404(Student, pk=pk)
+    form = StudentForm(request.POST or None, instance=obj)
+    if form.is_valid():
+        form.save()
+        return redirect("student_list")
+    return render(request, "form.html", {"form": form, "title": "Edit Student"})
+
+
+def student_delete(request, pk):
+    obj = get_object_or_404(Student, pk=pk)
+    obj.delete()
+    return redirect("student_list")

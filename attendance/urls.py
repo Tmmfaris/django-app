@@ -1,5 +1,6 @@
 from django.urls import path
+from .views import attendance_list
 
 urlpatterns = [
-    # Add attendance-related endpoints here
+    path("", attendance_list, name="attendance_list"),
 ]
