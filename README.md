@@ -1,47 +1,217 @@
-# Academic Management Web Application
+# EduZ Academic Suite – Academic Management System
 
-## Overview
-A scalable, data-driven academic management platform built with Django, HTML, CSS, and Bootstrap. Designed for teachers, students, and administrators to manage academic data, analyze performance, and enable future AI-driven insights.
+EduZ Academic Suite is a **web-based academic management platform** designed to manage students, teachers, subjects, attendance, and marks in a centralized system.
 
-## Features
-- Role-based authentication (Admin, Teacher, Student)
-- Student information management
-- Attendance tracking and alerts
-- Marks management and grade calculation
-- Modular, extensible architecture for analytics and AI
-- Responsive frontend with Bootstrap
+The application is built using **Django, SQLite, HTML, CSS, and Bootstrap**, providing a scalable foundation for educational data management and future analytics integration.
 
-## Project Structure
-- `users`: User and role management
-- `students`: Student profiles and academic history
-- `attendance`: Daily attendance records
-- `marks`: Exam and marks management
-- `analytics`: (Future) Analytics and AI features
-- `core`: Homepage, base templates, static files
+This project demonstrates practical skills in:
 
-## Setup Instructions
-1. Install dependencies:
-   ```bash
-   pip install django
-   ```
-2. Run migrations:
-   ```bash
-   python manage.py migrate
-   ```
-3. Create a superuser:
-   ```bash
-   python manage.py createsuperuser
-   ```
-4. Start the development server:
-   ```bash
-   python manage.py runserver
-   ```
-5. Access the app at [http://localhost:8000](http://localhost:8000)
-
-## Next Steps
-- Implement analytics and AI modules
-- Add REST API endpoints
-- Enhance UI and add dashboards
+- Django Web Development
+- Database Design
+- CRUD Operations
+- Dashboard Development
+- Cloud Deployment
 
 ---
-This project is a strong foundation for future research and innovation in educational data science.
+
+# Live Demo
+
+🔗 **Live Application**  
+https://academic-management-system-jz3f.onrender.com
+
+---
+
+# Problem Statement
+
+Educational institutions often struggle to manage academic data efficiently across multiple modules such as student records, attendance, and marks.
+
+This project builds a **centralized academic management system** that allows administrators and teachers to manage academic information efficiently while providing a scalable architecture for future analytics and AI-driven insights.
+
+---
+
+# Tech Stack
+
+## Backend
+- Python
+- Django
+
+## Database
+- SQLite
+
+## Frontend
+- HTML
+- CSS
+- Bootstrap
+
+## Deployment
+- Render Cloud Platform
+
+---
+
+# Features
+
+- Academic dashboard with system overview
+- Student information management
+- Teacher management
+- Subject and course management
+- Attendance tracking system
+- Marks entry and management
+- Responsive admin-style dashboard UI
+- Modular Django architecture
+
+---
+
+# System Modules
+
+### Students
+Manage student profiles, enrollment details, and academic records.
+
+### Teachers
+Maintain teacher information and faculty assignments.
+
+### Subjects
+Manage course subjects and academic syllabus tracking.
+
+### Attendance
+Record and track student attendance.
+
+### Marks
+Store and manage exam marks and academic performance.
+
+### Dashboard
+Centralized dashboard showing key academic metrics.
+
+---
+
+# Project Structure
+
+```
+academic-management-system/
+│
+├── manage.py
+│
+├── core/
+│   ├── templates
+│   ├── static
+│   └── views.py
+│
+├── students/
+│   ├── models.py
+│   ├── views.py
+│   └── admin.py
+│
+├── teachers/
+│   ├── models.py
+│   ├── views.py
+│   └── admin.py
+│
+├── subjects/
+│   ├── models.py
+│   ├── views.py
+│   └── admin.py
+│
+├── attendance/
+│   ├── models.py
+│   ├── views.py
+│   └── admin.py
+│
+├── marks/
+│   ├── models.py
+│   ├── views.py
+│   └── admin.py
+│
+├── db.sqlite3
+└── requirements.txt
+```
+
+---
+
+# Installation & Setup
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/Tmmfaris/django-app.git
+```
+
+```
+cd django-app
+```
+
+---
+
+### Install Dependencies
+
+```bash
+pip install django
+```
+
+or
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+### Run Database Migrations
+
+```bash
+python manage.py migrate
+```
+
+---
+
+### Create Admin User
+
+```bash
+python manage.py createsuperuser
+```
+
+---
+
+### Start Development Server
+
+```bash
+python manage.py runserver
+```
+
+Open in browser:
+
+```
+http://127.0.0.1:8000
+```
+
+---
+
+# Deployment
+
+The application is deployed on **Render Cloud Platform** with GitHub integration.
+
+Deployment benefits:
+
+- Automatic redeployment
+- Cloud hosting
+- Scalable architecture
+
+---
+
+# Future Improvements
+
+- Role-based authentication (Admin / Teacher / Student)
+- Academic analytics dashboard
+- AI-based student performance prediction
+- REST API integration
+- Data visualization and reporting system
+
+---
+
+# Author
+
+**Muhammed Faris T M**
+
+📧 Email: tmmfaris@gmail.com  
+🔗 GitHub: https://github.com/Tmmfaris  
+🔗 LinkedIn: [https://linkedin.com](http://www.linkedin.com/in/muhammed-faris-tm-ab1233196)
+
+---
